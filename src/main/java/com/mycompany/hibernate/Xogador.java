@@ -46,4 +46,9 @@ public class Xogador implements Serializable{
         this.posicions.add(posicion);
     }
     
+    @Override
+    public String toString(){
+        return this.nome;
+    }
+    
 }
