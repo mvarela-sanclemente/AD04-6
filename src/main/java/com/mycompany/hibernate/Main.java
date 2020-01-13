@@ -18,6 +18,13 @@ public class Main {
         //Creamos un equipo
         Equipo equipo = new Equipo(1,"San Clemente", "Santiago", 1000, entrenador);
         Transaction tran = null;
+        
+        //Creamos os xogadores
+        Xogador xogador1 = new Xogador("nome1",1,equipo);
+        Xogador xogador2 = new Xogador("nome2",2,equipo);
+        equipo.addXogador(xogador1);
+        equipo.addXogador(xogador2);
+        
         try{
             //Collemos a sesión de Hibernate
             Session session = HibernateUtil.getSessionFactory().openSession();
