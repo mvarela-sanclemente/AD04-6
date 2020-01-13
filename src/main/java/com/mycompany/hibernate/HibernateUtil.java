@@ -51,6 +51,7 @@ public class HibernateUtil {
                 conf.addAnnotatedClass(Equipo.class);
                 conf.addAnnotatedClass(Entrenador.class);
                 conf.addAnnotatedClass(Xogador.class);
+                conf.addAnnotatedClass(Posicion.class);
                 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(conf.getProperties()).build();
                 sessionFactory = conf.buildSessionFactory(serviceRegistry);
