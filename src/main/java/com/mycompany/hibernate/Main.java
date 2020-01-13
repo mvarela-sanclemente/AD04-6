@@ -12,8 +12,11 @@ import org.hibernate.Transaction;
 public class Main {
     
     public static void main(String args[]){
+        //Creamos un entrenador
+        Entrenador entrenador = new Entrenador(1,"Nome1","Apelidos1",50);
+        
         //Creamos un equipo
-        Equipo equipo = new Equipo(1, "San Clemente", "Santiago", 1000);
+        Equipo equipo = new Equipo(1,"San Clemente", "Santiago", 1000, entrenador);
         Transaction tran = null;
         try{
             //Collemos a sesión de Hibernate
