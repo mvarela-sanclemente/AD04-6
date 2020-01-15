@@ -70,7 +70,7 @@ SELECT e FROM Equipo e WHERE nombre='San Clemente' AND numeroSocios>10;
 
 ## Operadores aritméticos
 
-- +
+- \+
 - \-
 - \*
 - /
@@ -83,7 +83,7 @@ SELECT e FROM Equipo e WHERE nombre='San Clemente' AND numeroSocios>10;
 - MAX()
 - COUNT()
 
-##Ordenación
+## Ordenación
 
 Funciona moi parecido a sql.
 
