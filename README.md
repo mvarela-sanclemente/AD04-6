@@ -55,8 +55,8 @@ SELECT e FROM Equipo e WHERE nombre='San Clemente' AND numeroSocios>10;
 ## Operadores de comparación
 
 - =
-- >
-- >=
+- \>
+- \>=
 - <=
 - <=
 - <> ou !=
