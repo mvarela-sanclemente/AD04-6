@@ -63,49 +63,22 @@ public class Main {
         try{
             //Collemos a sesión de Hibernate
             Session session = HibernateUtil.getSessionFactory().openSession();
-            
-            //Facemos unha consulta en SQL
-            Query q1 = session.createQuery("SELECT x FROM Xogador x");
-            List<Xogador> xogadores1 = q1.list();
-            for(Xogador xogador:xogadores1){
-                System.out.println(xogador.toString());
+                
+            //Facemos unha consulta en HQL
+            Query hql1 = session.createQuery("SELECT e FROM Equipo e");
+            List<Equipo> equipos1 = hql1.list();
+            for(Equipo eq:equipos1){
+                System.out.println(eq.toString());
             }
             
-            System.out.println("---------------------");
-            
-            //Tamén podemos escoller recuperar só algún parámetro
-            Query q2 = session.createQuery("SELECT x.nome,x.dorsal FROM Xogador x");
-            List<Object[]> xogadores2 = q2.list();
-            for(Object[] xogador:xogadores2){
-                System.out.println(xogador[0] + " - Dorsal: " + xogador[1]);
-            }
-            
-            System.out.println("---------------------");
-            
-            //Consulta con só un resultado
-            Query q3 = session.createQuery("SELECT x FROM Xogador x WHERE dorsal=1");
-            Xogador xogadorAux = (Xogador) q3.uniqueResult();
-            System.out.println(xogadorAux.toString());
-
-            System.out.println("---------------------");
-            
-            //Paginacion
-            int tamPagina=1;
-            //Primare pagína es la 0
-            int paginaMostrar=1;
-            Query q4 = session.createQuery("SELECT x FROM Xogador x ORDER BY dorsal");
-            q4.setMaxResults(tamPagina);
-            q4.setFirstResult(tamPagina * paginaMostrar);
-            List<Xogador> xogadores4 = q4.list();
-            for(Xogador xogador:xogadores4){
-                System.out.println(xogador.toString());
-            }
-            
-            //Numero de paginas
-            Query q4_2 = session.createQuery("SELECT count(*) FROM Xogador x");
-            long numObj = (Long) q4_2.uniqueResult();
-            int numPaginas = (int) Math.ceil((double)numObj/(double)tamPagina);
-            System.out.println("Numero de paginas: " + numPaginas);
+            //Facemos unha consulta en HQL
+            Query hql2 = session.createQuery("SELECT e FROM Equipo e WHERE e.nome=:n AND e.numeroSocios>:ns");
+            hql2.setParameter("n", "San Clemente");
+            hql2.setParameter("ns", 100);
+            List<Equipo> equipos2 = hql2.list();
+            for(Equipo eq:equipos2){
+                System.out.println(eq.toString());
+            } 
             
            
         }catch(HibernateException e){

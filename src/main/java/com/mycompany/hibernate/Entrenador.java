@@ -32,4 +32,9 @@ public class Entrenador implements Serializable{
         this.apelidos=apelidos;
         this.idade = idade;
     }
+    
+    @Override
+    public String toString(){
+        return this.nome + " " + this.apelidos + " de " + this.idade +" anos";
+    }
 }

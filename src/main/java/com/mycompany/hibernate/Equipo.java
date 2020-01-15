@@ -49,4 +49,20 @@ public class Equipo implements Serializable{
         this.xogadores.add(xogador);
     }
     
+    @Override
+    public String toString(){
+        String data = new String();
+        data += "id: " + this.id + ". ";
+        data += "Equipo: " + this.nome+ ". ";
+        data += "Cidade: " + this.cidade + ".";
+        data += "Numero de Socios: " + this.numeroSocios + ". ";
+        data += "\nXogadores: \n";
+        for(Xogador xog: this.xogadores){
+            data+= "\t" + xog.toString() + "\n";
+        }
+        data+="\n";
+        data+="Entrenador: " + this.entrenador.toString();
+        return data;
+    }
+    
 }
